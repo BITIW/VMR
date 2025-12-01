@@ -1,0 +1,19 @@
+[package]
+name = "vmr"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.53", features = ["derive"] }
+cpal = "0.16.0"
+hound = "3.5.1"
+rayon = "1.11.0"
+zstd = "0.13.3"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = "symbols"
+debug = false
+panic = "abort"
